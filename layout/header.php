@@ -97,7 +97,7 @@ session_start();
                                 </div>
 
                                 <div class="form-group">
-                                    <input name="password" id="registerPassword" type="text" class="form-control" placeholder="Password">
+                                    <input name="password" id="registerPassword" type="password" class="form-control" placeholder="Password">
                                     <i class="form-group__bar"></i>
                                 </div>
 
@@ -108,7 +108,7 @@ session_start();
                                 <p style="color:red;" id="errorMsgRF"></p>
                                 <button type="submit" class="submitBtnRF btn btn-primary btn-block m-t-10 m-b-10">Register</button>
 
-                                <div class="top-nav__auth">
+                                <!-- <div class="top-nav__auth">
                                     <span>or</span>
 
                                     <div>Sign in using</div>
@@ -120,7 +120,7 @@ session_start();
                                     <a href="<?//=$googleUrl?>" class="mdc-bg-red-400">
                                         <i class="zmdi zmdi-google"></i>
                                     </a>
-                                </div>
+                                </div> -->
 
                             </form>
                         </li>
@@ -147,7 +147,7 @@ session_start();
                                             <a href="#top-nav-forgot-password" data-toggle="tab"><small>Forgot Password?</small></a>
                                         </div>
 
-                                        <div class="top-nav__auth">
+                                        <!-- <div class="top-nav__auth">
                                             <span>or</span>
 
                                             <div>Sign in using</div>
@@ -159,7 +159,7 @@ session_start();
                                             <a href="<?=$googleUrl?>" class="mdc-bg-red-400">
                                                 <i class="zmdi zmdi-google"></i>
                                             </a>
-                                        </div>
+                                        </div> -->
                                     </form>
 
                                     <form class="tab-pane fade forgot-password" id="top-nav-forgot-password">

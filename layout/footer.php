@@ -31,13 +31,13 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="footer__block footer__block--blog">
-                            <div class="footer__title">Latest from our blog</div>
+                            <!-- <div class="footer__title">Latest from our blog</div>
                             <?php if(is_array($latestBlogArray) && !empty($latestBlogArray)) { 
                                 foreach ($latestBlogArray as $key => $value) {
                                     echo '<a href="'.BLOG_URL.'/'.$value['post_name'].'">'.$value['post_title'].'<small>On '.date('Y/m/d', strtotime($value['post_date'])).'</small></a>';
                                 }
                             }
-                            ?>
+                            ?> -->
                         </div>
                     </div>
                     <div class="col-sm-3">

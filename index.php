@@ -189,25 +189,11 @@ $ogImageWidth = 150;
         </header>
 
         <div class="row listings-grid">
-        <?php //foreach ($popularArray as $key => $value) { 
+        <!-- <?php //foreach ($popularArray as $key => $value) { 
                 //if(empty($value['i_image_url'])) $image = 'noimage.png'; else $image = $value['i_image_url'];
         ?>
-            <div class="col-sm-4 col-md-3">
-                <div class="listings-grid__item">
-                    <a href="<?=MAIN_URL?>/<?=$value['unique_url']?>" title="<?=$Common->checkStringSanitize($value['name'])?>">
-                        <div class="listings-grid__main">
-                            
-                        </div>
-
-                        <div class="listings-grid__body">
-                            <small><?=$value['address']?></small>
-                            
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-        <?php //} ?>
+    
+        <?php //} ?> -->
         </div>
     </div>
 </section>
@@ -304,9 +290,7 @@ $ogImageWidth = 150;
 
 $(document).ready(function() {
 
-    <?php if($POP_UP) { ?>
-        $('#new-event').modal('show');
-    <?php } ?>
+    
     
     var abs_url = '<?=ABS_URL?>';
     var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
