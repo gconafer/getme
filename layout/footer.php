@@ -136,6 +136,7 @@ $(document).ready(function() {
         $(".submitBtnLF").attr("disabled", "disabled");
         var email = $('#loginEmail').val();
         var password = $('#loginPassword').val();
+        var type = $('#registerType').children("option:selected").val();
         if(!password) {
             $('#errorMsgLF').text('Please enter password');
             $('.submitBtnLF').removeAttr("disabled");
@@ -146,12 +147,12 @@ $(document).ready(function() {
             $('#errorMsgLF').text('Please enter valid email');
             $('.submitBtnLF').removeAttr("disabled");
         } else {
-            $.post(abs_url+"/controller/common_controller.php", {email:email, password:password, flowtype:3},function(data) {
+            $.post(abs_url+"/controller/common_controller.php", {email:email, password:password, type:type, flowtype:3},function(data) {
                 var result = jQuery.parseJSON(data);
                 if(result.status == 'success') {
                     $('.submitBtnLF').removeAttr("disabled");
                     $('#errorMsgLF').css("color", "green").text(result.msg);
-                    window.location.href = abs_url+"/home";
+                    //window.location.href = abs_url+"/home";
                 } else {
                     $('#errorMsgLF').text(result.msg);
                     $('.submitBtnLF').removeAttr("disabled");
@@ -167,6 +168,8 @@ $(document).ready(function() {
         var email = $('#registerEmail').val();
         var password = $('#registerPassword').val();
         var cpassword = $('#registerCPassword').val();
+        var type = $('#registerType').children("option:selected").val();
+
         if(!name) {
             $('#errorMsgRF').text('Please enter full name');
             $('.submitBtnRF').removeAttr("disabled");
@@ -186,12 +189,12 @@ $(document).ready(function() {
             $('#errorMsgRF').text('Password and confirm password does not match');
             $('.submitBtnRF').removeAttr("disabled");
         } else {
-            $.post(abs_url+"/controller/common_controller.php", {name:name, email:email, password:password, cpassword:cpassword, flowtype:4},function(data) {
+            $.post(abs_url+"/controller/common_controller.php", {name:name, email:email, password:password, cpassword:cpassword, type:type, flowtype:4},function(data) {
                 var result = jQuery.parseJSON(data);
                 if(result.status == 'success') {
                     $('.submitBtnRF').removeAttr("disabled");
                     $('#errorMsgRF').css("color", "green").text(result.msg);
-                    window.location.href = abs_url+"/home";
+                    //window.location.href = abs_url+"/home";
                 } else {
                     $('#errorMsgRF').text(result.msg);
                     $('.submitBtnRF').removeAttr("disabled");

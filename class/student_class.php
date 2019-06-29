@@ -7,9 +7,13 @@ class Student extends metaModel {
 		parent::__construct();
 	}
 
-	public function getStudentByEmail($Email)
+	public function getStudentByEmail($Email, $type)
 	{
-		$q = "SELECT * FROM Student where email = '".$this->fix_for_mysqli($Email)."'";
+		if ($type == 1) {
+			$q = "SELECT * FROM entrepreneur where email = '".$this->fix_for_mysqli($Email)."'";
+		} else {
+			$q = "SELECT * FROM investor where email = '".$this->fix_for_mysqli($Email)."'";
+		}
     	$this->setQuery($q);
 		if($this->getTotalReturnRows() > 0)
 		{
@@ -20,9 +24,13 @@ class Student extends metaModel {
 		}
 	}
 
-	public function getStudentById($Id)
+	public function getStudentById($Id, $type)
 	{
-		$q = "SELECT * FROM Student where id = '".$this->fix_for_mysqli($Id)."'";
+		if ($type == 1) {
+			$q = "SELECT * FROM entrepreneur where id = '".$this->fix_for_mysqli($Id)."'";
+		} else {
+			$q = "SELECT * FROM investor where id = '".$this->fix_for_mysqli($Id)."'";
+		}
     	$this->setQuery($q);
 		if($this->getTotalReturnRows() > 0)
 		{
@@ -33,9 +41,14 @@ class Student extends metaModel {
 		}
 	}
 
-	public function getStudentByEmailAndPassword($Email, $Password)
+	public function getStudentByEmailAndPassword($Email, $Password, $type)
 	{
-		$q = "SELECT * FROM Student where email = '".$this->fix_for_mysqli($Email)."' and password = '".$this->fix_for_mysqli($Password)."'";
+		if ($type == 1) {
+			$q = "SELECT * FROM entrepreneur where email = '".$this->fix_for_mysqli($Email)."' and password = '".$this->fix_for_mysqli($Password)."'";
+		} else {
+			$q = "SELECT * FROM investor where email = '".$this->fix_for_mysqli($Email)."' and password = '".$this->fix_for_mysqli($Password)."'";
+		}
+		
     	$this->setQuery($q);
 		if($this->getTotalReturnRows() > 0)
 		{
@@ -59,10 +72,14 @@ class Student extends metaModel {
 		}
 	}
 
-	public function insertStudent($name, $email, $password, $type, $contact_no, $image, $gender, $fb_link, $gplus_link, $email_status, $status)
+	public function insertStudent($name, $email, $password, $type)
 	{
 		$case = "insert";
-		$q = "Insert into Student set name = '".$this->fix_for_mysqli($name)."', email = '".$this->fix_for_mysqli($email)."', password = '".$this->fix_for_mysqli($password)."', type = '".$this->fix_for_mysqli($type)."', contact_no = '".$this->fix_for_mysqli($contact_no)."', image = '".$this->fix_for_mysqli($image)."', gender = '".$this->fix_for_mysqli($gender)."', fb_link = '".$this->fix_for_mysqli($fb_link)."', gplus_link = '".$this->fix_for_mysqli($gplus_link)."', email_status = '".$this->fix_for_mysqli($email_status)."', status = '".$this->fix_for_mysqli($status)."', modified_on = '".date('Y-m-d H:i:s')."', created_on = '".date('Y-m-d H:i:s')."'";
+		if ($type == 1) {
+			$q = "Insert into entrepreneur set firstName = '".$this->fix_for_mysqli($name)."', email = '".$this->fix_for_mysqli($email)."', password = '".$this->fix_for_mysqli($password)."'";
+		} else {
+			$q = "Insert into investor set firstName = '".$this->fix_for_mysqli($name)."', email = '".$this->fix_for_mysqli($email)."', password = '".$this->fix_for_mysqli($password)."'";
+		}
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			$Id = $this->getLastInsertId();

@@ -105,6 +105,14 @@ session_start();
                                     <input name="cpasswod" id="registerCPassword" type="password" class="form-control" placeholder="Confirm Password">
                                     <i class="form-group__bar"></i>
                                 </div>
+
+                                <div class="form-group">
+                                    <select name="registerType" id="registerType" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                        <option value='1'>Entrepreneur</option>
+                                        <option value='2'>Investor</option>
+                                    </select>
+                                    <i class="form-group__bar"></i>
+                                </div>
                                 <p style="color:red;" id="errorMsgRF"></p>
                                 <button type="submit" class="submitBtnRF btn btn-primary btn-block m-t-10 m-b-10">Register</button>
 
@@ -140,6 +148,15 @@ session_start();
                                             <input type="password" id="loginPassword" class="form-control" placeholder="Password">
                                             <i class="form-group__bar"></i>
                                         </div>
+
+                                        <div class="form-group">
+                                            <select name="registerType" id="registerType" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                <option value='1'>Entrepreneur</option>
+                                                <option value='2'>Investor</option>
+                                            </select>
+                                            <i class="form-group__bar"></i>
+                                        </div>
+                                        
                                         <p style="color:red;" id="errorMsgLF"></p>
                                         <button type="submit" class="submitBtnLF btn btn-primary btn-block m-t-10 m-b-10">Login</button>
 
@@ -171,6 +188,15 @@ session_start();
                                             <input name="email" id="forgetEmail" type="text" class="form-control" placeholder="Enter your email">
                                             <i class="form-group__bar"></i>
                                         </div>
+
+                                        <div class="form-group">
+                                            <select name="registerType" id="registerType" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                <option value='1'>Entrepreneur</option>
+                                                <option value='2'>Investor</option>
+                                            </select>
+                                            <i class="form-group__bar"></i>
+                                        </div>
+
                                         <p style="color:red;" id="errorMsgFPF"></p>
                                         <button type="submit" class="submitBtnFPF btn btn-warning btn-block">Reset Password</button>
                                     </form>

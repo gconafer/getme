@@ -37,14 +37,12 @@ if((isset($_REQUEST['flowtype'])) && (isset($_POST)))
 		$Common = new Common();
 		if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])) {
 			if($Common->isValidEmail($_POST['email'])) {
-				$studentArray = $Student->getStudentByEmailAndPassword($_POST['email'], $_POST['password']);
+				$studentArray = $Student->getStudentByEmailAndPassword($_POST['email'], $_POST['password'], $_POST['type']);
 				if(is_array($studentArray) && !empty($studentArray)) {
 					$_SESSION['id'] = $studentArray['id'];
 					$_SESSION['email'] = $studentArray['email'];
-					$_SESSION['name'] = $studentArray['name'];
-					$_SESSION['type'] = $studentArray['type'];
-					$_SESSION['email_status'] = $studentArray['email_status'];
-					$_SESSION['status'] = $studentArray['status'];
+					$_SESSION['name'] = $studentArray['firstName'];
+					$_SESSION['type'] = $_POST['type'];
 					$array = array('status' => 'success', 'msg' => 'Login Successfully');
 				} else {
 					$array = array('status' => 'error', 'msg' => 'Email and Password does not match');
@@ -62,17 +60,15 @@ if((isset($_REQUEST['flowtype'])) && (isset($_POST)))
 		if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['cpassword']) && !empty($_POST['cpassword'])) {
 			if(trim($_POST['password']) == trim($_POST['cpassword'])) {
 				if($Common->isValidEmail($_POST['email'])) {
-					$studentArray = $Student->getStudentByEmail($_POST['email']);
+					$studentArray = $Student->getStudentByEmail($_POST['email'], $_POST['type']);
 					if(is_array($studentArray) && empty($studentArray)) {
-						$Id = $Student->insertStudent($_POST['name'], $_POST['email'], trim($_POST['password']), 1, '', '', 0, '', '', 2, 1);
+						$Id = $Student->insertStudent($_POST['name'], $_POST['email'], trim($_POST['password']), $_POST['type']);
 						if($Id > 0) {
-							$studentArray = $Student->getStudentById($Id);
+							$studentArray = $Student->getStudentById($Id, $_POST['type']);
 							$_SESSION['id'] = $studentArray['id'];
 							$_SESSION['email'] = $studentArray['email'];
 							$_SESSION['name'] = $studentArray['name'];
-							$_SESSION['type'] = $studentArray['type'];
-							$_SESSION['email_status'] = $studentArray['email_status'];
-							$_SESSION['status'] = $studentArray['status'];
+							$_SESSION['type'] = $_POST['type'];
 							$array = array('status' => 'success', 'msg' => 'Register Successfully!');
 						} else {
 							$array = array('status' => 'error', 'msg' => 'Something went wrong. please try again!');
