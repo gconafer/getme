@@ -150,13 +150,13 @@ session_start();
                                         </div>
 
                                         <div class="form-group">
-                                            <select name="registerType" id="registerType" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                            <select name="loginType" id="loginType" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                                                 <option value='1'>Entrepreneur</option>
                                                 <option value='2'>Investor</option>
                                             </select>
                                             <i class="form-group__bar"></i>
                                         </div>
-                                        
+
                                         <p style="color:red;" id="errorMsgLF"></p>
                                         <button type="submit" class="submitBtnLF btn btn-primary btn-block m-t-10 m-b-10">Login</button>
 
@@ -190,7 +190,7 @@ session_start();
                                         </div>
 
                                         <div class="form-group">
-                                            <select name="registerType" id="registerType" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                            <select name="registerType1" id="registerType1" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                                                 <option value='1'>Entrepreneur</option>
                                                 <option value='2'>Investor</option>
                                             </select>

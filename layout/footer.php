@@ -136,7 +136,7 @@ $(document).ready(function() {
         $(".submitBtnLF").attr("disabled", "disabled");
         var email = $('#loginEmail').val();
         var password = $('#loginPassword').val();
-        var type = $('#registerType').children("option:selected").val();
+        var type = $('#loginType').children("option:selected").val();
         if(!password) {
             $('#errorMsgLF').text('Please enter password');
             $('.submitBtnLF').removeAttr("disabled");
