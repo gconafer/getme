@@ -48,6 +48,7 @@ class Student extends metaModel {
 		} else {
 			$q = "SELECT * FROM investor where email = '".$this->fix_for_mysqli($Email)."' and password = '".$this->fix_for_mysqli($Password)."'";
 		}
+
 		
     	$this->setQuery($q);
 		if($this->getTotalReturnRows() > 0)
@@ -76,9 +77,9 @@ class Student extends metaModel {
 	{
 		$case = "insert";
 		if ($type == 1) {
-			$q = "Insert into entrepreneur set firstName = '".$this->fix_for_mysqli($name)."', email = '".$this->fix_for_mysqli($email)."', password = '".$this->fix_for_mysqli($password)."'";
+			$q = "Insert into entrepreneur set name = '".$this->fix_for_mysqli($name)."', email = '".$this->fix_for_mysqli($email)."', password = '".$this->fix_for_mysqli($password)."', loginType = 1, formNumber = 1";
 		} else {
-			$q = "Insert into investor set firstName = '".$this->fix_for_mysqli($name)."', email = '".$this->fix_for_mysqli($email)."', password = '".$this->fix_for_mysqli($password)."'";
+			$q = "Insert into investor set name = '".$this->fix_for_mysqli($name)."', email = '".$this->fix_for_mysqli($email)."', password = '".$this->fix_for_mysqli($password)."', loginType = 1, formNumber = 1";
 		}
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
@@ -132,6 +133,18 @@ class Student extends metaModel {
 	{
 		$case = "update";
 		$q = "update Student set password = ".$this->fix_for_mysqli($password).", modified_on = '".date('Y-m-d H:i:s')."' where id = ".$this->fix_for_mysqli($id);
+		$this->setQuery($q);
+		if($this->runQuery($case)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function formOne($id, $pphone, $sname, $website, $cofounder, $member)
+	{
+		$case = "update";
+		$q = "update entrepreneur set contactNo = '".$this->fix_for_mysqli($pphone)."', startupName = '".$this->fix_for_mysqli($sname)."', websiteUrl = '".$this->fix_for_mysqli($website)."', noOfCofounder = '".$this->fix_for_mysqli($cofounder)."', noOfTeamMember = '".$this->fix_for_mysqli($member)."', formNumber = 2 where id = ".$this->fix_for_mysqli($id);
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			return true;

@@ -35,7 +35,7 @@
                 <i class="zmdi zmdi-menu"></i>
             </a>
 
-            <a href="<?=ABS_URL?>/home" class="header-alt__logo hidden-xs">Dashboard</a>
+            <!-- <a href="<?=ABS_URL?>/home" class="header-alt__logo hidden-xs">Dashboard</a> -->
 
             <ul class="header-alt__menu">
                 <li class="header-alt__profile dropdown">

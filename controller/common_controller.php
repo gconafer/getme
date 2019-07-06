@@ -156,6 +156,15 @@ if((isset($_REQUEST['flowtype'])) && (isset($_POST)))
 			$array = array('status' => 'error', 'msg' => 'Please enter password or confirm password');
 		}
 		echo json_encode($array);
+	} elseif (isset($_POST) && $flowtype == 7) {
+		$Student = new Student();
+		$update = $Student->formOne($_SESSION['id'], $_POST['pphone'],  $_POST['sname'], $_POST['website'], $_POST['cofounder'], $_POST['member']);
+		if ($update) {
+			$array = array('status' => 'success');
+		} else {
+			$array = array('status' => 'error');
+		}
+		echo json_encode($array);
 	}
 
 } else {

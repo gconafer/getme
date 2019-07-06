@@ -1,27 +1,27 @@
 <?php
-session_start();
-/*-------------------     Include File Start      ---------------*/
-include_once("config.php");
-include_once("global.php");
-include_once("./class/student_test_class.php");
-include_once("./class/exam_question_class.php");
+// session_start();
+// /*-------------------     Include File Start      ---------------*/
+// include_once("config.php");
+// include_once("global.php");
+// include_once("./class/student_test_class.php");
+// include_once("./class/exam_question_class.php");
 
-/*-------------------     Include File End      ---------------*/
-/*
-if(!isset($_SESSION['id']) || empty($_SESSION['id'])) {
-    session_destroy();
-    header("Location: ".LOGIN_URL);
-    die();
-}
-*/
-/*-------------------     Class Object Start      ---------------*/
+// /*-------------------     Include File End      ---------------*/
+// /*
+// if(!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+//     session_destroy();
+//     header("Location: ".LOGIN_URL);
+//     die();
+// }
+// */
+// /*-------------------     Class Object Start      ---------------*/
 
-$studentTest = new Student_Test();
-$examQuestion = new Exam_Question();
+// $studentTest = new Student_Test();
+// $examQuestion = new Exam_Question();
 
-/*-------------------     Class Object End      ---------------*/
+// /*-------------------     Class Object End      ---------------*/
 
-$questionArray = $examQuestion->getQuestionListOfTestWithAnswer($_SESSION['id'], $studentTestArray['test_id']);
+// $questionArray = $examQuestion->getQuestionListOfTestWithAnswer($_SESSION['id'], $studentTestArray['test_id']);
 /*
 $noOfTest = $accuracy = $noOfQuestion = $noOfUnattemptedQuestion = $noOfRightQuestion = $noOfWrongQuestion = $avgTimePerQuestion = $totalSecond = 0;
 $examArray = $Exam->getExamByUrlAndSubjectId($_GET['q'], $_GET['q1']);
@@ -47,7 +47,7 @@ $avgTimePerQuestion = $totalSecond/$noOfQuestion;
 
 
 include_once("layout/dashboard-header.php");
-include_once("layout/dashboard-left-menu.php");
+ include_once("layout/dashboard-left-menu.php");
 ?>
 <style type="text/css">
     .listings-grid__favorite{position:absolute;z-index:1;bottom:6px;right:10px}

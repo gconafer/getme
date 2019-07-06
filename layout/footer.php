@@ -152,7 +152,11 @@ $(document).ready(function() {
                 if(result.status == 'success') {
                     $('.submitBtnLF').removeAttr("disabled");
                     $('#errorMsgLF').css("color", "green").text(result.msg);
-                    //window.location.href = abs_url+"/home";
+                    if (type == 1) {
+                        window.location.href = abs_url+"/e_form.php";
+                    } else {
+                        window.location.href = abs_url+"/i_form.php";
+                    }
                 } else {
                     $('#errorMsgLF').text(result.msg);
                     $('.submitBtnLF').removeAttr("disabled");
@@ -194,7 +198,11 @@ $(document).ready(function() {
                 if(result.status == 'success') {
                     $('.submitBtnRF').removeAttr("disabled");
                     $('#errorMsgRF').css("color", "green").text(result.msg);
-                    //window.location.href = abs_url+"/home";
+                    if (type == 1) {
+                        window.location.href = abs_url+"/e_form.php";
+                    } else {
+                        window.location.href = abs_url+"/i_form.php";
+                    }
                 } else {
                     $('#errorMsgRF').text(result.msg);
                     $('.submitBtnRF').removeAttr("disabled");
