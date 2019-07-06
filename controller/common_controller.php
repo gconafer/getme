@@ -165,6 +165,33 @@ if((isset($_REQUEST['flowtype'])) && (isset($_POST)))
 			$array = array('status' => 'error');
 		}
 		echo json_encode($array);
+	}elseif (isset($_POST) && $flowtype == 8) {
+		$Student = new Student();
+		$update = $Student->formTwo($_SESSION['id'], $_POST['cregistered'],  $_POST['dataofinception'], $_POST['location'], $_POST['competitorname'], $_POST['sector'], $_POST['tstartup'], $_POST['fundingraised'], $_POST['stage']);
+		if ($update) {
+			$array = array('status' => 'success');
+		} else {
+			$array = array('status' => 'error');
+		}
+		echo json_encode($array);
+	}elseif (isset($_POST) && $flowtype == 9) {
+		$Student = new Student();
+		$update = $Student->formThree($_SESSION['id'], $_POST['avgM'],  $_POST['totalR'], $_POST['expM'], $_POST['amtW'], $_POST['equD'], $_POST['amtI']);
+		if ($update) {
+			$array = array('status' => 'success');
+		} else {
+			$array = array('status' => 'error');
+		}
+		echo json_encode($array);
+	}elseif (isset($_POST) && $flowtype == 10) {
+		$Student = new Student();
+		$update = $Student->formFour($_SESSION['id'], $_POST['abtS'],  $_POST['tags']);
+		if ($update) {
+			$array = array('status' => 'success');
+		} else {
+			$array = array('status' => 'error');
+		}
+		echo json_encode($array);
 	}
 
 } else {

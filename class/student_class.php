@@ -152,5 +152,42 @@ class Student extends metaModel {
 			return false;
 		}
 	}
+
+	public function formTwo($id, $cregistered, $dataofinception, $location, $competitorname, $sector, $tstartup, $fundingraised, $stage)
+	{
+		$case = "update";
+		$q = "update entrepreneur set inceptionDate = '".$this->fix_for_mysqli($dataofinception)."', registered = '".$this->fix_for_mysqli(cregistered)."', sectorId = '".$this->fix_for_mysqli($sector)."', startupType = '".$this->fix_for_mysqli($tstartup)."', stageId = '".$this->fix_for_mysqli($stage)."', fundingRaisedAlready = '".$this->fix_for_mysqli($fundingraised)."',nearestCompetitorName = '".$this->fix_for_mysqli($competitorname)."', locationName = '".$this->fix_for_mysqli($location)."', formNumber = 3 where id = ".$this->fix_for_mysqli($id);
+		$this->setQuery($q);
+		if($this->runQuery($case)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function formThree($id, $avgM, $totalR, $expM, $amtW, $equD, $amtI)
+	{
+		$case = "update";
+		$q = "update entrepreneur set avgMonthlyRevenue = '".$this->fix_for_mysqli($avgM)."', totalRevenueTillNow = '".$this->fix_for_mysqli(totalR)."', revenueNextFiveYears = '".$this->fix_for_mysqli($expM)."', lookingToRaise = '".$this->fix_for_mysqli($amtW)."', equityDilutedForAboveAmount = '".$this->fix_for_mysqli($equD)."', amountInvestedAlready = '".$this->fix_for_mysqli($amtI)."', formNumber = 4 where id = ".$this->fix_for_mysqli($id);
+		$this->setQuery($q);
+		if($this->runQuery($case)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function formFour($id, $abtS, $tags)
+	{
+		$case = "update";
+		$q = "update entrepreneur set aboutUs = '".$this->fix_for_mysqli($abtS)."', tags = '".$this->fix_for_mysqli($tags)."', formNumber = 0 where id = ".$this->fix_for_mysqli($id);
+		$this->setQuery($q);
+		if($this->runQuery($case)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
 ?>

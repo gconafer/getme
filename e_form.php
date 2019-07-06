@@ -44,7 +44,7 @@ include_once("layout/left-menu.php");
 //echo $questionCount; echo '<pre>'; print_R($questionArray); die('aaa');
 ?>
 
-<title>Add Exam Test | Ecoaching.guru | Your Online Coaching Guru</title>
+<title>Dummy Text</title>
 <section id="main__content">
 
     <div class="main__container" style="padding: 30px 10px 30px 10px;">
@@ -118,13 +118,13 @@ include_once("layout/left-menu.php");
 		
 
 		<!-- second form start  -->
-        <form class="card new-contact" >
+        <form class="card new-contact" id="eFormNo2">
             <div class="card__body">
                 <div class="row">
     
                     <div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="name" id="name" class="form-control">
+                            <input type="text"  id="cregistered" class="form-control">
                             <label>is company registered?</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -132,7 +132,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="date" name="email" id="email" class="form-control" >
+                            <input type="date"  id="dataofinception" class="form-control" >
                             <label>date of inception</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -140,7 +140,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="phone" id="pphone" class="form-control">
+                            <input type="text"  id="location" class="form-control">
                             <label>Location (Country/City)</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -148,7 +148,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select id='sector' class='form-control'>
                               <?php foreach ($sector as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -160,7 +160,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select id='tstartup' class='form-control'>
                               <?php foreach ($type_of_startup as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -172,7 +172,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select  id='fundingraised' class='form-control'>
                               <?php foreach ($funding_raised_already as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -184,7 +184,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="member" id="member" class="form-control">
+                            <input type="text"  id="competitorname" class="form-control">
                             <label>nearest competitor name</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -192,7 +192,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select id='stage' class='form-control'>
                               <?php foreach ($stage as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -207,20 +207,20 @@ include_once("layout/left-menu.php");
                 <p style="color:red;" id = "errorMsgD"></p>
                 <div class="clearfix"></div>
                 <div class="m-t-20">
-                    <button type="submit" class="btn btn-lg btn-primary submitBtn" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-lg btn-primary submitBtn2" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
 		<!-- second form end  -->
 
 		<!-- third form start  -->
-        <form class="card new-contact" >
+        <form class="card new-contact" id="eFormNo3">
             <div class="card__body">
                 <div class="row">
     
 				<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select name='avgM' id='avgM' class='form-control'>
                               <?php foreach ($Avg_monthly_revenue as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -232,7 +232,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select name='totalR' id='totalR' class='form-control'>
                               <?php foreach ($total_revenue_till_now as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -244,7 +244,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select name='expM' id='expM' class='form-control'>
                               <?php foreach ($expected_monthly_revenue_in_next_5_years as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -256,7 +256,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select name='amtW' id="amtW" class='form-control'>
                               <?php foreach ($amount_wants_to_raise as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -268,7 +268,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select name='equD' id='equD' class='form-control'>
                               <?php foreach ($equity_diluted_for_above_amount as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -280,7 +280,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select name='amtI' id='amtI' class='form-control'>
                               <?php foreach ($Amount_Invested_already as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -294,20 +294,20 @@ include_once("layout/left-menu.php");
                 <p style="color:red;" id = "errorMsgD"></p>
                 <div class="clearfix"></div>
                 <div class="m-t-20">
-                    <button type="submit" class="btn btn-lg btn-primary submitBtn" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-lg btn-primary submitBtn3" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
 		<!-- third form end  -->
 
 		<!-- fourth form start  -->
-        <form class="card new-contact" >
+        <form class="card new-contact" id="eFormNo4" >
             <div class="card__body">
                 <div class="row">
 
 				<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="member" id="member" class="form-control">
+                            <input type="text" name="abtS" id="abtS" class="form-control">
                             <label>about startup</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -315,7 +315,7 @@ include_once("layout/left-menu.php");
 
 				<div class="col-sm-12">
                         <div class="form-group form-group--float">
-						<select name='' class='form-control'>
+						<select name='tags' id='tags' class='form-control'>
                               <?php foreach ($Suggested_Tags as $key => $value) { ?>
                                         <option value='<?php echo $key; ?>'><?php echo $value; ?></option>
                                     <?php } ?>
@@ -330,7 +330,7 @@ include_once("layout/left-menu.php");
                 <p style="color:red;" id = "errorMsgD"></p>
                 <div class="clearfix"></div>
                 <div class="m-t-20">
-                    <button type="submit" class="btn btn-lg btn-primary submitBtn" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-lg btn-primary submitBtn4" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
@@ -362,6 +362,66 @@ include_once("layout/left-menu.php");
 		});
         return false;
     });
-    });
+     
+	
+	$(document).on("submit", "form#eFormNo2", function() {
+		$(".submitBtn2").attr("disabled", "disabled");
+		var cregistered = $('#cregistered').val();
+		var dataofinception = $('#dataofinception').val();
+		var location = $('#location').val();
+		var competitorname = $('#competitorname').val();
+		var sector = $('#sector').children("option:selected").val();
+		var tstartup = $('#tstartup').children("option:selected").val();
+		var fundingraised = $('#fundingraised').children("option:selected").val();
+		var stage = $('#stage').children("option:selected").val();
+		$.post(abs_url+"/controller/common_controller.php", {cregistered:cregistered, dataofinception:dataofinception, location:location, competitorname:competitorname, sector:sector, tstartup:tstartup, fundingraised:fundingraised, stage:stage, flowtype:8},function(data) {
+			var result = jQuery.parseJSON(data);
+			if(result.status == 'success') {
+				$('.submitBtn2').removeAttr("disabled");
+				window.location.href = abs_url+"/e_form.php";
+			} else {
+				$('.submitBtn1').removeAttr("disabled");
+			}
+		});
+		return false;
+	});
+
+	$(document).on("submit", "form#eFormNo3", function() {
+		$(".submitBtn3").attr("disabled", "disabled");
+		var avgM = $('#avgM').children("option:selected").val();
+		var totalR = $('#totalR').children("option:selected").val();
+		var expM = $('#expM').children("option:selected").val();
+		var amtW = $('#amtW').children("option:selected").val();
+		var equD = $('#equD').children("option:selected").val();
+		var amtI = $('#amtI').children("option:selected").val();
+		$.post(abs_url+"/controller/common_controller.php", {avgM:avgM, totalR:totalR, expM:expM, amtW:amtW, equD:equD, amtI:amtI, flowtype:9},function(data) {
+			var result = jQuery.parseJSON(data);
+			if(result.status == 'success') {
+				$('.submitBtn3').removeAttr("disabled");
+				window.location.href = abs_url+"/e_form.php";
+			} else {
+				$('.submitBtn3').removeAttr("disabled");
+			}
+		});
+		return false;
+	});
+
+	$(document).on("submit", "form#eFormNo4", function() {
+		$(".submitBtn4").attr("disabled", "disabled");
+		var abtS = $('#abtS').val();
+		var tags = $('#tags').children("option:selected").val();
+		$.post(abs_url+"/controller/common_controller.php", {abtS:abtS, tags:tags, flowtype:10},function(data) {
+			var result = jQuery.parseJSON(data);
+			if(result.status == 'success') {
+				$('.submitBtn4').removeAttr("disabled");
+				window.location.href = abs_url+"/e_form.php";
+			} else {
+				$('.submitBtn3').removeAttr("disabled");
+			}
+		});
+		return false;
+	});
+
+});
 </script>
 <?php include_once("layout/dashboard-footer.php"); ?>
