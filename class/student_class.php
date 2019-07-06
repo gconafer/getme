@@ -23,6 +23,7 @@ class Student extends metaModel {
 			return array();
 		}
 	}
+	
 
 	public function getStudentById($Id, $type)
 	{

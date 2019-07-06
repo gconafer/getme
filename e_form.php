@@ -1,9 +1,9 @@
 <?php
-// session_start();
+session_start();
 // /*-------------------     Include File Start      ---------------*/
 include_once("config.php");
 include_once("global.php");
-// include_once("./class/exam_test_class.php");
+include_once("./class/student_class.php");
 // include_once("./class/exam_question_class.php");
 
 // /*-------------------     Include File End      ---------------*/
@@ -38,6 +38,11 @@ include_once("global.php");
 //     die();
 // }
 
+$Student = new Student();
+
+$arrayF = $Student->getStudentById($_SESSION['id'], 1);
+
+
 /*-------------------     Include Header and Left Menu     ---------------*/
 include_once("layout/dashboard-header.php");
 include_once("layout/left-menu.php");
@@ -51,15 +56,16 @@ include_once("layout/left-menu.php");
         <div class="submit-property">
             <ul class="submit-property__steps">
             <?php 
-            for ($i=1; $i <= $questionCount+1; $i++) { 
-                if($i == $_GET['q']) $active = "class='active'"; else $active = "";
-                echo "<li ".$active."><a href='".DASH_URL."/create-exam-test?id=".$_GET['id']."&q=".$i."'>".$i."</a></li>";
+            for ($i=1; $i <= 4; $i++) {
+                if($i == $arrayF['formNumber']) $active = "class='active'"; else $active = "";
+                echo "<li ".$active."><a href='#'>".$i."</a></li>";
             } ?>
                 <li class="submit-property__caret"></li>
             </ul>
         </div>
         <br /><br /><br />
-        
+		
+		<?php if ($arrayF['formNumber'] == 1) { ?>
 		<!-- first form start  -->
         <form class="card new-contact" id="eFormNo1">
             <div class="card__body">
@@ -115,8 +121,9 @@ include_once("layout/left-menu.php");
             </div>
         </form>
 		<!-- first form end  -->
+		<?php } ?>
 		
-
+		<?php if ($arrayF['formNumber'] == 2) { ?>
 		<!-- second form start  -->
         <form class="card new-contact" id="eFormNo2">
             <div class="card__body">
@@ -212,7 +219,9 @@ include_once("layout/left-menu.php");
             </div>
         </form>
 		<!-- second form end  -->
-
+		<?php } ?>
+		
+		<?php if ($arrayF['formNumber'] == 3) { ?>
 		<!-- third form start  -->
         <form class="card new-contact" id="eFormNo3">
             <div class="card__body">
@@ -299,7 +308,9 @@ include_once("layout/left-menu.php");
             </div>
         </form>
 		<!-- third form end  -->
-
+		<?php } ?>
+		
+		<?php if ($arrayF['formNumber'] == 4) { ?>
 		<!-- fourth form start  -->
         <form class="card new-contact" id="eFormNo4" >
             <div class="card__body">
@@ -335,6 +346,7 @@ include_once("layout/left-menu.php");
             </div>
         </form>
 		<!-- fourth form end  -->
+		<?php } ?>
 
     </div>
 </section>
