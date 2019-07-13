@@ -46,6 +46,7 @@ $arrayF = $Student->getStudentById($_SESSION['id'], 1);
 
 if(isset($_GET['n']) && $_GET['n'] > 0) {
     $N = $_GET['n'];
+    $arrayF['formNumber'] = 0;
 }
 
 
