@@ -169,7 +169,7 @@ class Student extends metaModel {
 	public function formThree($id, $avgM, $totalR, $expM, $amtW, $equD, $amtI)
 	{
 		$case = "update";
-		$q = "update entrepreneur set avgMonthlyRevenue = '".$this->fix_for_mysqli($avgM)."', totalRevenueTillNow = '".$this->fix_for_mysqli(totalR)."', revenueNextFiveYears = '".$this->fix_for_mysqli($expM)."', lookingToRaise = '".$this->fix_for_mysqli($amtW)."', equityDilutedForAboveAmount = '".$this->fix_for_mysqli($equD)."', amountInvestedAlready = '".$this->fix_for_mysqli($amtI)."', formNumber = 4 where id = ".$this->fix_for_mysqli($id);
+		$q = "update entrepreneur set avgMonthlyRevenue = '".$this->fix_for_mysqli($avgM)."', totalRevenueTillNow = '".$this->fix_for_mysqli($totalR)."', revenueNextFiveYears = '".$this->fix_for_mysqli($expM)."', lookingToRaise = '".$this->fix_for_mysqli($amtW)."', equityDilutedForAboveAmount = '".$this->fix_for_mysqli($equD)."', amountInvestedAlready = '".$this->fix_for_mysqli($amtI)."', formNumber = 4 where id = ".$this->fix_for_mysqli($id);
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			return true;
