@@ -379,7 +379,6 @@ include_once("layout/left-menu.php");
 		$.post(abs_url+"/controller/common_controller.php", {pphone:pphone, sname:sname, website:website, cofounder:cofounder, member:member, flowtype:7},function(data) {
 			var result = jQuery.parseJSON(data);
 			if(result.status == 'success') {
-                alert(N);
                 if (N) {
                     $('.submitBtn1').removeAttr("disabled");
 				    window.location.href = abs_url+"/gallery.php";
