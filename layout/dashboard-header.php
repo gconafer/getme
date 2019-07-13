@@ -44,7 +44,7 @@
                     </a>
 
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="<?=ABS_URL?>/changepassword">Change Password</a></li>
+                        <!-- <li><a href="<?=ABS_URL?>/changepassword">Change Password</a></li> -->
                         <li><a href="<?=ABS_URL?>/controller/logout_controller.php?flowtype=1">Logout</a></li>
                     </ul>
                 </li>

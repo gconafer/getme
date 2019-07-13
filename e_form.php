@@ -367,7 +367,7 @@ include_once("layout/left-menu.php");
     $(document).ready(function() {         
 
         var abs_url = '<?=ABS_URL?>';
-        var N = '<?=$N?>';
+        var N = <?=$N?>;
 		$(document).on("submit", "form#eFormNo1", function() {
         $(".submitBtn1").attr("disabled", "disabled");
         var pphone = $('#pphone').val();
@@ -378,6 +378,7 @@ include_once("layout/left-menu.php");
 		$.post(abs_url+"/controller/common_controller.php", {pphone:pphone, sname:sname, website:website, cofounder:cofounder, member:member, flowtype:7},function(data) {
 			var result = jQuery.parseJSON(data);
 			if(result.status == 'success') {
+                alert(N);
                 if (N) {
                     $('.submitBtn1').removeAttr("disabled");
 				    window.location.href = abs_url+"/gallery.php";
