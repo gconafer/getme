@@ -157,7 +157,7 @@ class Student extends metaModel {
 	public function formTwo($id, $cregistered, $dataofinception, $location, $competitorname, $sector, $tstartup, $fundingraised, $stage)
 	{
 		$case = "update";
-		$q = "update entrepreneur set inceptionDate = '".$this->fix_for_mysqli($dataofinception)."', registered = '".$this->fix_for_mysqli(cregistered)."', sectorId = '".$this->fix_for_mysqli($sector)."', startupType = '".$this->fix_for_mysqli($tstartup)."', stageId = '".$this->fix_for_mysqli($stage)."', fundingRaisedAlready = '".$this->fix_for_mysqli($fundingraised)."',nearestCompetitorName = '".$this->fix_for_mysqli($competitorname)."', locationName = '".$this->fix_for_mysqli($location)."', formNumber = 3 where id = ".$this->fix_for_mysqli($id);
+		$q = "update entrepreneur set inceptionDate = '".$this->fix_for_mysqli($dataofinception)."', registered = '".$this->fix_for_mysqli($cregistered)."', sectorId = '".$this->fix_for_mysqli($sector)."', startupType = '".$this->fix_for_mysqli($tstartup)."', stageId = '".$this->fix_for_mysqli($stage)."', fundingRaisedAlready = '".$this->fix_for_mysqli($fundingraised)."',nearestCompetitorName = '".$this->fix_for_mysqli($competitorname)."', locationName = '".$this->fix_for_mysqli($location)."', formNumber = 3 where id = ".$this->fix_for_mysqli($id);
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			return true;
