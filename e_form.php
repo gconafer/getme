@@ -6,12 +6,14 @@ include_once("global.php");
 include_once("./class/student_class.php");
 // include_once("./class/exam_question_class.php");
 
+$N = 0;
+
 // /*-------------------     Include File End      ---------------*/
 
-// if(!isset($_SESSION['id']) && empty($_SESSION['id'])) {
-//     header("Location: ".DASH_URL);
-//     die();  
-// }
+if(!isset($_SESSION['id']) && empty($_SESSION['id'])) {
+    header("Location: ".DASH_URL);
+    die();  
+}
 
 // /*-------------------     Class Object Start      ---------------*/
 
@@ -42,6 +44,10 @@ $Student = new Student();
 
 $arrayF = $Student->getStudentById($_SESSION['id'], 1);
 
+if(isset($_GET['n']) && $_GET['n'] > 0) {
+    $N = $_GET['n'];
+}
+
 
 /*-------------------     Include Header and Left Menu     ---------------*/
 include_once("layout/dashboard-header.php");
@@ -53,6 +59,7 @@ include_once("layout/left-menu.php");
 <section id="main__content">
 
     <div class="main__container" style="padding: 30px 10px 30px 10px;">
+    <?php if(!$N) { ?>
         <div class="submit-property">
             <ul class="submit-property__steps">
             <?php 
@@ -63,9 +70,10 @@ include_once("layout/left-menu.php");
                 <li class="submit-property__caret"></li>
             </ul>
         </div>
+    <?php } ?>
         <br /><br /><br />
 		
-		<?php if ($arrayF['formNumber'] == 1) { ?>
+		<?php if ($arrayF['formNumber'] == 1 || $N == 1) { ?>
 		<!-- first form start  -->
         <form class="card new-contact" id="eFormNo1">
             <div class="card__body">
@@ -73,7 +81,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="phone" id="pphone" class="form-control">
+                            <input type="text" name="phone" id="pphone" class="form-control" value="<?php echo $arrayF['contactNo']; ?>">
                             <label>Phone</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -81,7 +89,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="sname" id="sname" class="form-control">
+                            <input type="text" name="sname" id="sname" class="form-control" value="<?php echo $arrayF['startupName']; ?>">
                             <label>Startup name</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -89,7 +97,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="website" id="website" class="form-control">
+                            <input type="text" name="website" id="website" class="form-control" value="<?php echo $arrayF['websiteUrl']; ?>">
                             <label>Website url</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -97,7 +105,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="number" name="cofounder" id="cofounder" class="form-control">
+                            <input type="number" name="cofounder" id="cofounder" class="form-control" value="<?php echo $arrayF['noOfCofounder']; ?>">
                             <label>No. Of Cofounder</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -105,7 +113,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="number" name="member" id="member" class="form-control">
+                            <input type="number" name="member" id="member" class="form-control" value="<?php echo $arrayF['noOfTeamMember']; ?>">
                             <label>No. Of Team Member</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -116,14 +124,14 @@ include_once("layout/left-menu.php");
                 <p style="color:red;" id = "errorMsgD"></p>
                 <div class="clearfix"></div>
                 <div class="m-t-20">
-                    <button type="submit" class="btn btn-lg btn-primary submitBtn1" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-lg btn-primary submitBtn1" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
 		<!-- first form end  -->
 		<?php } ?>
 		
-		<?php if ($arrayF['formNumber'] == 2) { ?>
+		<?php if ($arrayF['formNumber'] == 2 || $N == 2) { ?>
 		<!-- second form start  -->
         <form class="card new-contact" id="eFormNo2">
             <div class="card__body">
@@ -150,7 +158,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text"  id="location" class="form-control">
+                            <input type="text"  id="location" class="form-control" value="<?php echo $arrayF['locationName']; ?>">
                             <label>Location (Country/City)</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -194,7 +202,7 @@ include_once("layout/left-menu.php");
 
 					<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text"  id="competitorname" class="form-control">
+                            <input type="text"  id="competitorname" class="form-control" value="<?php echo $arrayF['nearestCompetitorName']; ?>">
                             <label>nearest competitor name</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -217,14 +225,14 @@ include_once("layout/left-menu.php");
                 <p style="color:red;" id = "errorMsgD"></p>
                 <div class="clearfix"></div>
                 <div class="m-t-20">
-                    <button type="submit" class="btn btn-lg btn-primary submitBtn2" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-lg btn-primary submitBtn2" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
 		<!-- second form end  -->
 		<?php } ?>
 		
-		<?php if ($arrayF['formNumber'] == 3) { ?>
+		<?php if ($arrayF['formNumber'] == 3 || $N == 3) { ?>
 		<!-- third form start  -->
         <form class="card new-contact" id="eFormNo3">
             <div class="card__body">
@@ -306,14 +314,14 @@ include_once("layout/left-menu.php");
                 <p style="color:red;" id = "errorMsgD"></p>
                 <div class="clearfix"></div>
                 <div class="m-t-20">
-                    <button type="submit" class="btn btn-lg btn-primary submitBtn3" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-lg btn-primary submitBtn3" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
 		<!-- third form end  -->
 		<?php } ?>
 		
-		<?php if ($arrayF['formNumber'] == 4) { ?>
+		<?php if ($arrayF['formNumber'] == 4 || $N == 4) { ?>
 		<!-- fourth form start  -->
         <form class="card new-contact" id="eFormNo4" >
             <div class="card__body">
@@ -321,7 +329,7 @@ include_once("layout/left-menu.php");
 
 				<div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text" name="abtS" id="abtS" class="form-control">
+                            <input type="text" name="abtS" id="abtS" class="form-control" value="<?php echo $arrayF['aboutUs']; ?>">
                             <label>about startup</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -344,7 +352,7 @@ include_once("layout/left-menu.php");
                 <p style="color:red;" id = "errorMsgD"></p>
                 <div class="clearfix"></div>
                 <div class="m-t-20">
-                    <button type="submit" class="btn btn-lg btn-primary submitBtn4" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-lg btn-primary submitBtn4" title="Click here to Add Question into this Test and Proceed for next Question">&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
@@ -359,6 +367,7 @@ include_once("layout/left-menu.php");
     $(document).ready(function() {         
 
         var abs_url = '<?=ABS_URL?>';
+        var N = '<?=$N?>';
 		$(document).on("submit", "form#eFormNo1", function() {
         $(".submitBtn1").attr("disabled", "disabled");
         var pphone = $('#pphone').val();
@@ -369,8 +378,14 @@ include_once("layout/left-menu.php");
 		$.post(abs_url+"/controller/common_controller.php", {pphone:pphone, sname:sname, website:website, cofounder:cofounder, member:member, flowtype:7},function(data) {
 			var result = jQuery.parseJSON(data);
 			if(result.status == 'success') {
-				$('.submitBtn1').removeAttr("disabled");
-				window.location.href = abs_url+"/e_form.php";
+                if (N) {
+                    $('.submitBtn1').removeAttr("disabled");
+				    window.location.href = abs_url+"/gallery.php";
+                } else {
+                    $('.submitBtn1').removeAttr("disabled");
+				    window.location.href = abs_url+"/e_form.php";
+                }
+				
 			} else {
 				$('.submitBtn1').removeAttr("disabled");
 			}
@@ -392,8 +407,13 @@ include_once("layout/left-menu.php");
 		$.post(abs_url+"/controller/common_controller.php", {cregistered:cregistered, dataofinception:dataofinception, location:location, competitorname:competitorname, sector:sector, tstartup:tstartup, fundingraised:fundingraised, stage:stage, flowtype:8},function(data) {
 			var result = jQuery.parseJSON(data);
 			if(result.status == 'success') {
-				$('.submitBtn2').removeAttr("disabled");
-				window.location.href = abs_url+"/e_form.php";
+                if (N) {
+                    $('.submitBtn1').removeAttr("disabled");
+				    window.location.href = abs_url+"/gallery.php";
+                } else {
+                    $('.submitBtn1').removeAttr("disabled");
+				    window.location.href = abs_url+"/e_form.php";
+                }
 			} else {
 				$('.submitBtn1').removeAttr("disabled");
 			}
@@ -412,8 +432,13 @@ include_once("layout/left-menu.php");
 		$.post(abs_url+"/controller/common_controller.php", {avgM:avgM, totalR:totalR, expM:expM, amtW:amtW, equD:equD, amtI:amtI, flowtype:9},function(data) {
 			var result = jQuery.parseJSON(data);
 			if(result.status == 'success') {
-				$('.submitBtn3').removeAttr("disabled");
-				window.location.href = abs_url+"/e_form.php";
+                if (N) {
+                    $('.submitBtn1').removeAttr("disabled");
+				    window.location.href = abs_url+"/gallery.php";
+                } else {
+                    $('.submitBtn1').removeAttr("disabled");
+				    window.location.href = abs_url+"/e_form.php";
+                }
 			} else {
 				$('.submitBtn3').removeAttr("disabled");
 			}
@@ -429,7 +454,7 @@ include_once("layout/left-menu.php");
 			var result = jQuery.parseJSON(data);
 			if(result.status == 'success') {
 				$('.submitBtn4').removeAttr("disabled");
-				window.location.href = abs_url+"/e_form.php";
+				window.location.href = abs_url+"/gallery.php";
 			} else {
 				$('.submitBtn3').removeAttr("disabled");
 			}

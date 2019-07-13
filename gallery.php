@@ -20,6 +20,12 @@ $Student = new Student();
 
 $arrayF = $Student->getStudentById($_SESSION['id'], $_SESSION['type']);
 
+if ($_SESSION['type']) {
+    $page = 'e_form.php';
+} else {
+    $page = 'i_form.php';
+}
+
 //echo '<pre>'; print_r($_SESSION); print_r($arrayF); die('aaaaaaaaaaaaaaaaa');
 
 
@@ -54,6 +60,10 @@ include_once("layout/left-menu.php");
         <form class="card">
             <div class="card__body">
                 <div class="row">
+                    <div class="col-sm-11"></div>
+                    <div class="col-sm-1"><a href="<?php echo ABS_URL; ?>/<?php echo $page; ?>?n=1" class="btn btn-sm btn-primary">Edit</a></div>
+                </div>
+                <div class="row">
                     <div class="col-sm-5"><h4>Phone:</h4></div>
                     <div class="col-sm-7"><?php echo $arrayF['contactNo']; ?></div>
                 </div>
@@ -78,6 +88,10 @@ include_once("layout/left-menu.php");
 
         <form class="card">
             <div class="card__body">
+                <div class="row">
+                    <div class="col-sm-11"></div>
+                    <div class="col-sm-1"><a href="<?php echo ABS_URL; ?>/<?php echo $page; ?>?n=2" class="btn btn-sm btn-primary">Edit</a></div>
+                </div>
                 <div class="row">
                     <div class="col-sm-5"><h4>Is company registered?:</h4></div>
                     <div class="col-sm-7"><?php if($arrayF['registered'] == 1) echo 'Yes'; else 'No'; ?></div>
@@ -104,32 +118,32 @@ include_once("layout/left-menu.php");
         <form class="card">
             <div class="card__body">
                 <div class="row">
-                    <div class="col-sm-5"><h4>Phone:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['contactNo']; ?></div>
+                    <div class="col-sm-11"></div>
+                    <div class="col-sm-1"><a href="<?php echo ABS_URL; ?>/<?php echo $page; ?>?n=3" class="btn btn-sm btn-primary">Edit</a></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>Startup name:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['startupName']; ?></div>
+                    <div class="col-sm-5"><h4>Avg monthly revenue:</h4></div>
+                    <div class="col-sm-7"><?php echo $Avg_monthly_revenue[$arrayF['avgMonthlyRevenue']]; ?></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>Website url:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['websiteUrl']; ?></div>
+                    <div class="col-sm-5"><h4>Total revenue till now:</h4></div>
+                    <div class="col-sm-7"><?php echo $total_revenue_till_now[$arrayF['totalRevenueTillNow']]; ?></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>No. Of Cofounder:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['noOfCofounder']; ?></div>
+                    <div class="col-sm-5"><h4>Expected revenue in next 5 years:</h4></div>
+                    <div class="col-sm-7"><?php echo $expected_monthly_revenue_in_next_5_years[$arrayF['revenueNextFiveYears']]; ?></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>No. Of Team Member:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['noOfTeamMember']; ?></div>
+                    <div class="col-sm-5"><h4>Looking to raise:</h4></div>
+                    <div class="col-sm-7"><?php echo $amount_wants_to_raise[$arrayF['lookingToRaise']]; ?></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>Funding raised already:</h4></div>
-                    <div class="col-sm-7"><?php echo $funding_raised_already[$arrayF['fundingRaisedAlready']]; ?></div>
+                    <div class="col-sm-5"><h4>Equity diluted for above amount:</h4></div>
+                    <div class="col-sm-7"><?php echo $equity_diluted_for_above_amount[$arrayF['equityDilutedForAboveAmount']]; ?></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>Nearest competitor name:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['nearestCompetitorName']; ?></div>
+                    <div class="col-sm-5"><h4>Amount Invested already:</h4></div>
+                    <div class="col-sm-7"><?php echo $Amount_Invested_already[$arrayF['amountInvestedAlready']]; ?></div>
                 </div>
             </div>
         </form>
@@ -137,24 +151,16 @@ include_once("layout/left-menu.php");
         <form class="card">
             <div class="card__body">
                 <div class="row">
-                    <div class="col-sm-5"><h4>Phone:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['contactNo']; ?></div>
+                    <div class="col-sm-11"></div>
+                    <div class="col-sm-1"><a href="<?php echo ABS_URL; ?>/<?php echo $page; ?>?n=4" class="btn btn-sm btn-primary">Edit</a></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>Startup name:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['startupName']; ?></div>
+                    <div class="col-sm-5"><h4>About startup:</h4></div>
+                    <div class="col-sm-7"><?php echo $arrayF['aboutUs']; ?></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5"><h4>Website url:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['websiteUrl']; ?></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-5"><h4>No. Of Cofounder:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['noOfCofounder']; ?></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-5"><h4>No. Of Team Member:</h4></div>
-                    <div class="col-sm-7"><?php echo $arrayF['noOfTeamMember']; ?></div>
+                    <div class="col-sm-5"><h4>Tags:</h4></div>
+                    <div class="col-sm-7"><?php echo $Suggested_Tags[$arrayF['tags']]; ?></div>
                 </div>
             </div>
         </form>
