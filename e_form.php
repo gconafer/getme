@@ -131,7 +131,10 @@ include_once("layout/left-menu.php");
     
                     <div class="col-sm-12">
                         <div class="form-group form-group--float">
-                            <input type="text"  id="cregistered" class="form-control">
+                            <select  id='cregistered' class='form-control'>
+                                <option value='1'>Yes</option>
+                                <option value='2'>No</option>
+							</select>
                             <label>is company registered?</label>
                             <i class="form-group__bar"></i>
                         </div>
@@ -378,7 +381,7 @@ include_once("layout/left-menu.php");
 	
 	$(document).on("submit", "form#eFormNo2", function() {
 		$(".submitBtn2").attr("disabled", "disabled");
-		var cregistered = $('#cregistered').val();
+		var cregistered = $('#cregistered').children("option:selected").val();
 		var dataofinception = $('#dataofinception').val();
 		var location = $('#location').val();
 		var competitorname = $('#competitorname').val();
