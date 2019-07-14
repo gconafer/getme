@@ -23,18 +23,15 @@ if (in_array($phpFileName, $dashboardMenu)) {
 }
 ?>
 <main id="main">
-    <!-- <aside id="main__sidebar">
-        <a class="hidden-lg main__block-close" href="<?=DASH_URL?>" data-rmd-action="block-close" data-rmd-target="#main__sidebar">
-            <i class="zmdi zmdi-long-arrow-left"></i>
-        </a>
+    <?php if ((!$NM) && (!isset($_GET['n']))) { ?>
+        <aside id="main__sidebar">
+            <a class="hidden-lg main__block-close" href="<?=ABS_URL?>" data-rmd-action="block-close" data-rmd-target="#main__sidebar">
+                <i class="zmdi zmdi-long-arrow-left"></i>
+            </a>
 
-        <ul class="main-menu">
-            <li <?=$dashboardMenuActive?>><a href="<?=DASH_URL?>/dashboard"><i class="zmdi zmdi-home"></i> Home</a></li>
-            <li <?=$courseMenuActive?>><a href="<?=DASH_URL?>/courses-list"><i class="zmdi zmdi-chart"></i> Courses</a></li>
-            <li <?=$batchMenuActive?>><a href="<?=DASH_URL?>/batch-list"><i class="zmdi zmdi-view-list"></i> Batch</a></li>
-            <li <?=$teacherMenuActive?>><a href="<?=DASH_URL?>/teacher-list"><i class="zmdi zmdi-account-box"></i> Teachers</a></li>
-            <li <?=$galleryMenuActive?>><a href="<?=DASH_URL?>/gallery"><i class="zmdi zmdi-collection-image"></i> Gallery</a></li>
-            <br />
-            <li <?=$testMenuActive?>><a href="<?=DASH_URL?>/exam-test-list" id="onlineTestSeries"><i class="zmdi zmdi-file-text"></i> Online Test&nbsp;&nbsp;<span class="mdc-bg-green-400">&nbsp;&nbsp;New&nbsp;&nbsp;</span></a></li>
-        </ul>
-    </aside> -->
+            <ul class="main-menu">
+                <li <?=$courseMenuActive?>><a href="<?=ABS_URL?>/gallery.php"><i class="zmdi zmdi-home"></i> Profile</a></li>
+                <li <?=$batchMenuActive?>><a href="<?=ABS_URL?>/gallery.php"><i class="zmdi zmdi-view-list"></i> Support</a></li>
+            </ul>
+        </aside>
+    <?php } ?>

@@ -14,11 +14,11 @@ if(!isset($_SESSION['id']) || empty($_SESSION['id'])) {
 
 /*-------------------     Include Header and Left Menu     ---------------*/
 include_once("layout/dashboard-header.php");
-include_once("layout/dashboard-left-menu.php");
+include_once("layout/left-menu.php");
 ?>
 
 <section id="main__content">
-    <div class="main__container">
+    <div class="main__container" style="padding-left: 250px;">
         <header class="main__title" style="padding:0px;">
             <h1>Change Password</h1>
         </header>
@@ -90,7 +90,7 @@ include_once("layout/dashboard-left-menu.php");
                         $('.submitBtn').removeAttr("disabled");
                         $('#errorMsgD').css('color', 'green').html(result.msg);
                         $("#errorMsgD").fadeOut(1000, function () {
-                            setTimeout(function(){ window.location.href = abs_url+'/home'; }, 1500);
+                            setTimeout(function(){ window.location.href = abs_url+'/gallery.php'; }, 1500);
                         });
                     } else {
                         $('#errorMsgD').text(result.msg);

@@ -40,12 +40,12 @@ include_once("./class/location_master_class.php");
 /*-------------------  Page Specific Variable ---------------*/
 // $cityDetailArray = $cityMaster->getDetailOfCity(CITY_ID);
 
-$pageTitle = "Test";
-$pageDesc = "Desc";
-$ogTitle = "Test";
+$pageTitle = "Connecting Investors with Entrepreneurs | Discover startups looking for funding";
+$pageDesc = "Connecting Investors with Entrepreneurs | Discover startups looking for funding";
+$ogTitle = "TesConnecting Investors with Entrepreneurst";
 $ogType = "website";
 $ogUrl = ABS_URL;
-$ogSiteName = "Test";
+$ogSiteName = "Get me a funding";
 $ogDesc = $pageDesc;
 $ogImage = ABS_IMG_URL."/logo.png";
 $ogImageHeight = 200;

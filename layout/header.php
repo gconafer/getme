@@ -221,7 +221,7 @@ session_start();
                     <a class="logo" href="<?=ABS_URL?>">
                         <img src="<?=ABS_IMG_URL?>/logo.png" alt="Ecoaching.guru">
                         <div class="logo__text">
-                            <span>Ecoaching.<span style="font-size:10px;margin-top:-15px;margin-left:100px;">guru</span></span>
+                            <span>Connecting Investors with Entrepreneurs<span style="font-size:10px;margin-top:5px;margin-left:200px;">Discover startups looking for funding</span></span>
                             <span></span>
                         </div>
                     </a>

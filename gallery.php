@@ -26,7 +26,7 @@ if ($_SESSION['type']) {
     $page = 'i_form.php';
 }
 
-//echo '<pre>'; print_r($_SESSION); print_r($arrayF); die('aaaaaaaaaaaaaaaaa');
+$NM = $arrayF['formNumber'];
 
 
 // $Instituate = new Instituate();
@@ -52,9 +52,9 @@ include_once("layout/dashboard-header.php");
 include_once("layout/left-menu.php");
 ?>
 
-<title> Gallery | Ecoaching.guru | Your Online Coaching Guru</title>
+<title> Profile</title>
 
-<section id="main__content">
+<section id="main__content" style="padding-left: 250px;">
     <div class="main__container">
 
         <form class="card">
@@ -168,13 +168,13 @@ include_once("layout/left-menu.php");
     </div>
 </section>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvVYsleYUQ_N6M_jl5kqOQo9j0KOWlTOM"></script>
+
 <script type="text/javascript">
 
     var dash_url = '<?=DASH_URL?>';
     var latV = '<?=$latV;?>';
     var longV = '<?=$longV;?>';
-    var zoomV = <?=$zoomV;?>;
+    var zoomV = '<?=$zoomV;?>';
     function filePreview(input) {
         var valid_formats = ["image/jpg", "image/png", "image/jpeg", "image/PNG", "image/JPG", "image/JPEG", "image/gif", "image/GIF"];
         if (input.files && input.files[0]) {
@@ -315,7 +315,7 @@ include_once("layout/left-menu.php");
     });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var map = new google.maps.Map(document.getElementById('map_canvas'), {
         zoom: zoomV,
         center: new google.maps.LatLng(35.137879, -82.836914),
@@ -340,6 +340,6 @@ include_once("layout/left-menu.php");
     map.setCenter(myMarker.position);
     myMarker.setMap(map);
 
-</script>
+</script> -->
 
 <?php include_once("layout/dashboard-footer.php"); ?>

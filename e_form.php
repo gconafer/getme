@@ -43,6 +43,12 @@ if(!isset($_SESSION['id']) && empty($_SESSION['id'])) {
 $Student = new Student();
 
 $arrayF = $Student->getStudentById($_SESSION['id'], 1);
+$NM = $arrayF['formNumber'];
+
+if ((!$arrayF['formNumber']) && (!isset($_GET['n']))) {
+    header("Location: ".ABS_URL."/gallery.php");
+    die();
+}
 
 if(isset($_GET['n']) && $_GET['n'] > 0) {
     $N = $_GET['n'];

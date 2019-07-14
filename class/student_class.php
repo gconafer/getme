@@ -61,9 +61,13 @@ class Student extends metaModel {
 		}
 	}
 
-	public function checkOldPassword($id, $old_password)
+	public function checkOldPassword($id, $type, $old_password)
 	{
-		$q = "SELECT * FROM Student where id = ".$this->fix_for_mysqli($id)." and password = '".$this->fix_for_mysqli($old_password)."'";
+		if ($type == 1) {
+			$q = "SELECT * FROM entrepreneur where id = ".$this->fix_for_mysqli($id)." and password = '".$this->fix_for_mysqli($old_password)."'";
+		} else {
+			$q = "SELECT * FROM investor where id = ".$this->fix_for_mysqli($id)." and password = '".$this->fix_for_mysqli($old_password)."'";
+		}
     	$this->setQuery($q);
 		if($this->getTotalReturnRows() > 0)
 		{
@@ -130,10 +134,14 @@ class Student extends metaModel {
 		}
 	}
 
-	public function updateUserPassword($id, $password)
+	public function updateUserPassword($id, $type, $password)
 	{
 		$case = "update";
-		$q = "update Student set password = ".$this->fix_for_mysqli($password).", modified_on = '".date('Y-m-d H:i:s')."' where id = ".$this->fix_for_mysqli($id);
+		if ($type == 1) {
+			$q = "update entrepreneur set password = ".$this->fix_for_mysqli($password)." where id = ".$this->fix_for_mysqli($id);
+		} else {
+			$q = "update investor set password = ".$this->fix_for_mysqli($password)." where id = ".$this->fix_for_mysqli($id);
+		}
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			return true;
@@ -142,10 +150,28 @@ class Student extends metaModel {
 		}
 	}
 
+	public function getFN($id) {
+		$q = "SELECT * FROM entrepreneur where id = ".$this->fix_for_mysqli($id);
+    	$this->setQuery($q);
+		if($this->getTotalReturnRows() > 0)
+		{
+			$result = $this->getSingleRecord();
+			return $result['formNumber'];
+		} else {
+			return array();
+		}
+	}
+
 	public function formOne($id, $pphone, $sname, $website, $cofounder, $member)
 	{
+		$N = $this->getFN($id);
+		if(!$N) {
+			$N = 0;
+		} else {
+			$N = 2;
+		}
 		$case = "update";
-		$q = "update entrepreneur set contactNo = '".$this->fix_for_mysqli($pphone)."', startupName = '".$this->fix_for_mysqli($sname)."', websiteUrl = '".$this->fix_for_mysqli($website)."', noOfCofounder = '".$this->fix_for_mysqli($cofounder)."', noOfTeamMember = '".$this->fix_for_mysqli($member)."', formNumber = 2 where id = ".$this->fix_for_mysqli($id);
+		$q = "update entrepreneur set contactNo = '".$this->fix_for_mysqli($pphone)."', startupName = '".$this->fix_for_mysqli($sname)."', websiteUrl = '".$this->fix_for_mysqli($website)."', noOfCofounder = '".$this->fix_for_mysqli($cofounder)."', noOfTeamMember = '".$this->fix_for_mysqli($member)."', formNumber = '".$this->fix_for_mysqli($N)."' where id = ".$this->fix_for_mysqli($id);
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			return true;
@@ -156,8 +182,14 @@ class Student extends metaModel {
 
 	public function formTwo($id, $cregistered, $dataofinception, $location, $competitorname, $sector, $tstartup, $fundingraised, $stage)
 	{
+		$N = $this->getFN($id);
+		if(!$N) {
+			$N = 0;
+		} else {
+			$N = 3;
+		}
 		$case = "update";
-		$q = "update entrepreneur set inceptionDate = '".$this->fix_for_mysqli($dataofinception)."', registered = '".$this->fix_for_mysqli($cregistered)."', sectorId = '".$this->fix_for_mysqli($sector)."', startupType = '".$this->fix_for_mysqli($tstartup)."', stageId = '".$this->fix_for_mysqli($stage)."', fundingRaisedAlready = '".$this->fix_for_mysqli($fundingraised)."',nearestCompetitorName = '".$this->fix_for_mysqli($competitorname)."', locationName = '".$this->fix_for_mysqli($location)."', formNumber = 3 where id = ".$this->fix_for_mysqli($id);
+		$q = "update entrepreneur set inceptionDate = '".$this->fix_for_mysqli($dataofinception)."', registered = '".$this->fix_for_mysqli($cregistered)."', sectorId = '".$this->fix_for_mysqli($sector)."', startupType = '".$this->fix_for_mysqli($tstartup)."', stageId = '".$this->fix_for_mysqli($stage)."', fundingRaisedAlready = '".$this->fix_for_mysqli($fundingraised)."',nearestCompetitorName = '".$this->fix_for_mysqli($competitorname)."', locationName = '".$this->fix_for_mysqli($location)."', formNumber = '".$this->fix_for_mysqli($N)."' where id = ".$this->fix_for_mysqli($id);
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			return true;
@@ -168,8 +200,14 @@ class Student extends metaModel {
 
 	public function formThree($id, $avgM, $totalR, $expM, $amtW, $equD, $amtI)
 	{
+		$N = $this->getFN($id);
+		if(!$N) {
+			$N = 0;
+		} else {
+			$N = 4;
+		}
 		$case = "update";
-		$q = "update entrepreneur set avgMonthlyRevenue = '".$this->fix_for_mysqli($avgM)."', totalRevenueTillNow = '".$this->fix_for_mysqli($totalR)."', revenueNextFiveYears = '".$this->fix_for_mysqli($expM)."', lookingToRaise = '".$this->fix_for_mysqli($amtW)."', equityDilutedForAboveAmount = '".$this->fix_for_mysqli($equD)."', amountInvestedAlready = '".$this->fix_for_mysqli($amtI)."', formNumber = 4 where id = ".$this->fix_for_mysqli($id);
+		$q = "update entrepreneur set avgMonthlyRevenue = '".$this->fix_for_mysqli($avgM)."', totalRevenueTillNow = '".$this->fix_for_mysqli($totalR)."', revenueNextFiveYears = '".$this->fix_for_mysqli($expM)."', lookingToRaise = '".$this->fix_for_mysqli($amtW)."', equityDilutedForAboveAmount = '".$this->fix_for_mysqli($equD)."', amountInvestedAlready = '".$this->fix_for_mysqli($amtI)."', formNumber = '".$this->fix_for_mysqli($N)."' where id = ".$this->fix_for_mysqli($id);
 		$this->setQuery($q);
 		if($this->runQuery($case)) {
 			return true;
