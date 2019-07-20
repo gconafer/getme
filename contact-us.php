@@ -1,30 +1,28 @@
 <?php
-session_start();
-// require_once (ABS_DIR."/vendor/Google/autoload.php");
-// require_once(ABS_DIR."/vendor/facebook-sdk-v5/autoload.php");
-// $phpFileName = basename($_SERVER['PHP_SELF']);
-// if($phpFileName == 'index.php') $headerClass = "header--minimal"; else $headerClass = "";
+/*-------------------     Include File Start      ---------------*/
 
-// $fb = new Facebook\Facebook([
-//   'app_id' => FB_APP_ID,
-//   'app_secret' => FB_APP_SECRET,
-//   'default_graph_version' => 'v2.5',
-// ]);
+include_once("config.php");
+include_once("global.php");
 
-// $client = new Google_Client();
-// $client->setClientId(GOOGLE_CLIENT_ID);
-// $client->setClientSecret(GOOGLE_SECRET);
-// $client->setRedirectUri(GPLUS_REDIRECT_URL);
-// $client->addScope("email");
-// $client->addScope("profile");
-// $service = new Google_Service_Oauth2($client);
-// $googleUrl = $client->createAuthUrl();
+/*-------------------     Include File End      ---------------*/
 
-// $helper = $fb->getRedirectLoginHelper();
-// $permissions = ['public_profile', 'email'];
-// $fbUrl = $helper->getLoginUrl(FB_REDIRECT_URL, $permissions);
+
+/*-------------------     Class Object Start      ---------------*/
+
+
+$pageTitle = "Connecting Investors with Entrepreneurs | Discover startups looking for funding";
+$pageDesc = "Connecting Investors with Entrepreneurs | Discover startups looking for funding";
+$ogTitle = "TesConnecting Investors with Entrepreneurst";
+$ogType = "website";
+$ogUrl = ABS_URL;
+$ogSiteName = "Get me a funding";
+$ogDesc = $pageDesc;
+$ogImage = ABS_IMG_URL."/logo.png";
+$ogImageHeight = 200;
+$ogImageWidth = 150;
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <!--[if IE 9 ]><html lang="en" class="ie9"><![endif]-->
@@ -216,21 +214,17 @@ session_start();
                     </ul>
                 </div>
             </div>
-            <div class="header__main">
-                <div class="container">
-                    <a class="logo" href="<?=ABS_URL?>">
-                        <img src="<?=ABS_IMG_URL?>/logo.png" alt="Ecoaching.guru">
-                        <div class="logo__text">
-                            <!-- <span>Getmeafunding.com<span style="font-size:10px;margin-top:5px;margin-left:200px;">Discover startups looking for funding</span></span> -->
-                            <span>Getmeafunding.com</span>
-                            <span></span>
-                        </div>
-                    </a>
+</header>
 
-                    <div class="navigation-trigger visible-xs visible-sm" data-rmd-action="block-open" data-rmd-target=".navigation">
-                        <i class="zmdi zmdi-menu"></i>
-                    </div>
+<br /><br /><br /><br /><br /><br />
 
-                    
-                </div>
-            </div>
+<script type="text/javascript" src="http://assets.freshdesk.com/widget/freshwidget.js"></script>
+<style type="text/css" media="screen, projection">
+	@import url(http://assets.freshdesk.com/widget/freshwidget.css); 
+</style> 
+<iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://getmeafunding.freshdesk.com/widgets/feedback_widget/new?&widgetType=embedded&formTitle=Contact+Us&submitTitle=Submit&submitThanks=Thank+you+for+reaching+us.+We+will+get+back+on+your+message+soon.&screenshot=No&searchArea=no" scrolling="no" height="400px" width="100%" frameborder="0" >
+</iframe>
+
+<br /><br /><br /><br /><br /><br />
+
+<?php include_once("layout/footer.php"); ?>

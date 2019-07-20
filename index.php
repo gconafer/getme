@@ -59,8 +59,8 @@ $ogImageWidth = 150;
         <form action="./controller/index_controller.php" method="post">
             <input type="hidden" name="flowtype" value="1" />
             <div class="search">
-                <div class="search__body">
-                    <input class="form-control search__input" placeholder="Search for Coaching Institute in <?=$cityName?>" data-rmd-action="advanced-search-open" type="text">
+                <div class="search__body" style="padding-left: 140px;">
+                    <input class="form-control search__input" placeholder="Search Startups, Investors etc." data-rmd-action="advanced-search-open" type="text">
 
                     <div class="search__advanced">
                         <div class="col-sm-6">
@@ -107,28 +107,15 @@ $ogImageWidth = 150;
 <section class="section">
     <div class="container">
         <header class="section__title">
-            <h1>Practice Courses</h1><hr />
+            <h1>Connecting Investors with Entrepreneurs</h1><hr />
         </header>
 
         <div class="row listings-grid">
-            <div class="col-sm-2 col-md-2"></div>
-            <div class="col-sm-4 col-md-4 notes">
-                <a href="<?=ABS_URL?>/bank-clerk-test">
-                    <div class=""><center><h4>Bank Clerk</h4></center></div>
-                    <div class="" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 4;">
-                        <center><b>IBPS Clerk, SBI Clerk, RRB Assistant</b></center>
-                    </div>
-                </a>
+            <div class="col-sm-5 col-md-5"></div>
+            <div class="col-sm-2 col-md-2">
+                <a href="#" class="btn btn-success">Discover Startups</a>
             </div>
-            <div class="col-sm-4 col-md-4 notes">
-                <a href="<?=ABS_URL?>/bank-po-test">
-                    <div class=""><center><h4>Bank PO</h4></center></div>
-                    <div class="" style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 4;">
-                        <center><b>IBPS PO, SBI PO, IPPB Officer, RRB Officer</b></center>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-2 col-md-2"></div>
+            <div class="col-sm-5 col-md-5"></div>
         </div>
     </div>
 </section>
@@ -136,64 +123,18 @@ $ogImageWidth = 150;
 <section class="section">
     <div class="container">
         <header class="section__title">
-            <h1>Popular Courses in <?=$cityName?></h1><hr />
+            <h1>Popular Startups</h1><hr />
         </header>
 
         <div class="row neighb-guide">
-            <div class="col-sm-3"></div>
+            <!-- <div class="col-sm-3"></div>
             <div class="col-sm-1">
                 <a class="card" href="<?=MAIN_URL?>/ssc-coaching-in-<?=$cityUrl?>">
                     <img style="width:100%;height:66px;" src="<?=ABS_IMG_URL?>/ssc.jpg" alt="SSC">
                     <span><center><h4>SSC</h4></center></span>
                 </a>
             </div>
-            <div class="col-sm-1">
-                <a class="card" href="<?=MAIN_URL?>/ca-coaching-in-<?=$cityUrl?>">
-                    <img style="width:100%;height:66px;" src="<?=ABS_IMG_URL?>/ca.jpg" alt="CA">
-                    <span><center><h4>CA</h4></center></span>
-                </a>
-            </div>
-            <div class="col-sm-1">
-                <a class="card" href="<?=MAIN_URL?>/iit-jee-coaching-in-<?=$cityUrl?>">
-                    <img style="width:100%;height:66px;" src="<?=ABS_IMG_URL?>/iit.jpg" alt="IIT-JEE">
-                    <span><center><h4>IIT JEE</h4></center></span>
-                </a>
-            </div>
-            <div class="col-sm-1">
-                <a class="card" href="<?=MAIN_URL?>/aipmt-coaching-in-<?=$cityUrl?>">
-                    <img style="width:100%;height:66px;" src="<?=ABS_IMG_URL?>/aipmt.jpg" alt="AIPMT">
-                    <span><center><h4>AIPMT</h4></center></span>
-                </a>
-            </div>
-            <div class="col-sm-1">
-                <a class="card" href="<?=MAIN_URL?>/ibps-po-coaching-in-<?=$cityUrl?>">
-                    <img style="width:100%;height:66px;" src="<?=ABS_IMG_URL?>/ibps.jpg" alt="IBPS PO">
-                    <span><center><h4>IBPS</h4></center></span>
-                </a>
-            </div>
-            <div class="col-sm-1">
-                <a class="card" href="<?=MAIN_URL?>/nda-coaching-in-<?=$cityUrl?>">
-                    <img style="width:100%;height:66px;" src="<?=ABS_IMG_URL?>/nda.png" alt="NDA">
-                    <span><center><h4>NDA</h4></center></span>
-                </a>
-            </div>
-            <div class="col-sm-3"></div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <header class="section__title">
-            <h1>Popular Coaching In <?=$cityName?></h1><hr />
-        </header>
-
-        <div class="row listings-grid">
-        <!-- <?php //foreach ($popularArray as $key => $value) { 
-                //if(empty($value['i_image_url'])) $image = 'noimage.png'; else $image = $value['i_image_url'];
-        ?>
-    
-        <?php //} ?> -->
+            <div class="col-sm-3"></div> -->
         </div>
     </div>
 </section>
